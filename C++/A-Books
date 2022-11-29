@@ -1,0 +1,36 @@
+#codechef
+#Problem
+#You are given a sortedsorted list AA of size NN.You have to make a new list BB such that B[i]B[i] is equal to the number of elements strictlystrictly greatergreater than A[i]A[i] in the list AA.
+
+#Print the newnew listlist.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int T,N;
+	
+	cin>>T;
+	while(T--){
+	    cin>>N;
+	    int A[N],B[N];
+	    for(int i=0; i<N; i++){
+	        cin>>A[i];
+	    }
+	    B[N-1] = 0;
+	    for(int i=N-2; i>=0; i--){
+	        if(A[i]==A[i+1]){
+	            B[i]= B[i+1];
+	        }
+	        else{
+	            B[i] = N-1-i;
+	        }
+	    }
+	    for(int i=0; i<N; i++){
+	        cout<<B[i]<<" ";
+	    }
+	    cout<<endl;
+	    
+	}
+	return 0;
+}
