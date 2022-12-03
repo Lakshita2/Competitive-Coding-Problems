@@ -1,0 +1,43 @@
+//Codechef
+/*Q.According to the new tax scheme, a new tax called the binary string tax was introduced! JJ has a binary string SS of length NN. 
+According to the tax scheme, for every occurrence of 0101 in SS, a tax of XX rupees will be charged, 
+while for every occurrence of 1010 in SS,
+a tax of YY rupees will be charged.
+
+//For example, if X = 5X=5, Y = 7Y=7 and S = 11010S=11010, then SS has 11 occurrence of 0101 and 22 occurrences of 1010,
+so the tax charged = 5 \cdot 1 + 7 \cdot 2 = 19=5⋅1+7⋅2=19
+
+//JJ can rearrange the string SS in any way he wants. He wants to minimize the amount of tax he has to pay. Can you help him do so?*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int T,N,X,Y;
+	string S;
+	bool is0 , is1;
+	cin>>T;
+	while(T--){
+	    cin>>N>>X>>Y;
+	    cin>>S;
+	    is0 = false, is1 = false;
+	    for(int i=0; i<N; i++){
+	        if(S[i]=='0'){
+	            is0 = true;
+	        }
+	        else{
+	            is1 = true;
+	        }
+	        if(is0 ==true && is1 ==true){
+	            cout<<min(X,Y)<<endl;
+	            break;
+	        }
+	    }
+	    if(is0==false || is1== false){
+	        cout<<0<<endl;
+	    }
+	}
+	return 0;
+}
